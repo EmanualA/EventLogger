@@ -1,0 +1,6 @@
+/*C1*/SET SCHEMA SYSTEM_LOBS
+INSERT INTO BLOCKS VALUES(0,2147483647,0)
+COMMIT
+/*C2*/SET SCHEMA PUBLIC
+create table if not exists TEVENTLOG(id varchar(100), duration Integer, type varchar(40), host varchar(40), alert boolean)
+DISCONNECT

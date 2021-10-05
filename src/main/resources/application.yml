@@ -1,0 +1,57 @@
+server:
+  port: 8080
+  ssl:
+    enabled: false
+  maxHttpHeaderSize: 102400
+
+spring:
+  application:
+    name: Event-Logger
+  jackson:
+    default-property-inclusion: non_empty
+    deserialization:
+      accept-empty-string-as-null-object: true
+      accept-empty-array-as-null-object: true
+      fail-on-null-for-primitives: true
+      use-big-decimal-for-floats: true
+  security:
+    user:
+      name: demo
+      password: demo
+  jpa:
+    hibernate:
+      ddl-auto: update
+      dialect: org.hibernate.dialect.HSQLDialect
+    database: HSQL
+    show-sql: true
+  datasource:
+    url: jdbc:hsqldb:file:data/mydb
+    username: sa
+    password:
+    driverClassName: org.hsqldb.jdbcDriver
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, env, info
+      cors:
+        allowed-origins: '*'
+        allowed-methods: GET
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    root: info
+
+springfox:
+  documentation:
+    swagger:
+      v2:
+        path: /api
