@@ -1,7 +1,6 @@
 package com.org.eventLogger.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.org.eventLogger.controller.EventController;
 import com.org.eventLogger.model.EventDetail;
 import com.org.eventLogger.model.EventLog;
 import com.org.eventLogger.repository.TeventLogRepository;
@@ -32,6 +31,12 @@ public class EventControllerServiceImpl implements EventControllerService {
         parseFile(file);
         LOGGER.info("Finished processing the file");
 
+    }
+
+    @Override
+    public Optional<EventLogTableEntity> getEvent(String id) {
+        LOGGER.info("started getting the events");
+        return teventLogRepository.findById(id);
     }
 
     private void parseFile(MultipartFile file) throws IOException {

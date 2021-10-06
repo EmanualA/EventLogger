@@ -1,6 +1,7 @@
 package com.org.eventLogger.controller;
 
 import com.org.eventLogger.model.EventLog;
+import com.org.eventLogger.repository.entity.EventLogTableEntity;
 import com.org.eventLogger.service.EventControllerService;
 import io.swagger.annotations.Api;
 
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Optional;
 
 @Api
 @RestController
@@ -48,9 +50,10 @@ public class EventController {
     }
 
     @GetMapping("/EventLogger/get")
-    public String getEvent(){
+    public Optional<EventLogTableEntity> getEvent(@RequestParam String id){
 //        return getEventDetails(id);
-        return "Emanual";
+        return eventControllerService.getEvent(id);
+
     }
 
 
