@@ -1,8 +1,6 @@
 package com.org.eventLogger.entity;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import com.org.eventLogger.entity.EventDetails;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

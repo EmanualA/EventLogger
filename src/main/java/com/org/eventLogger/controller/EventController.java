@@ -1,10 +1,9 @@
 package com.org.eventLogger.controller;
 
-import com.org.eventLogger.model.EventLog;
+
 import com.org.eventLogger.repository.entity.EventLogTableEntity;
 import com.org.eventLogger.service.EventControllerService;
 import io.swagger.annotations.Api;
-
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -51,7 +49,7 @@ public class EventController {
 
     @GetMapping("/get")
     public Optional<EventLogTableEntity> getEvent(@RequestParam String id){
-//        return getEventDetails(id);
+
         return eventControllerService.getEvent(id);
 
     }

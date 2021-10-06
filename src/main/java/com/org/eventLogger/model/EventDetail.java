@@ -1,11 +1,7 @@
 package com.org.eventLogger.model;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigInteger;
 

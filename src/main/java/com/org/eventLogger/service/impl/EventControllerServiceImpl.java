@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.*;
 import java.util.*;
 
@@ -20,10 +19,13 @@ import java.util.*;
 public class EventControllerServiceImpl implements EventControllerService {
     private static final Logger LOGGER = LoggerFactory.getLogger(EventControllerServiceImpl.class);
     @Autowired
-    Mapper mapper;
+    private Mapper mapper;
 
     @Autowired
-    TeventLogRepository teventLogRepository;
+    private TeventLogRepository teventLogRepository;
+
+    @Autowired
+    private  ObjectMapper objectMapper;
 
     @Override
     public void processFile(MultipartFile file) throws IOException {
@@ -42,7 +44,6 @@ public class EventControllerServiceImpl implements EventControllerService {
     private void parseFile(MultipartFile file) throws IOException {
 
         LOGGER.info("Started parsing the file");
-        ObjectMapper objectMapper = new ObjectMapper();
         Map<String, EventLog> eventDetailsMap = new HashMap<>();
 
         InputStream fileInputStream = new BufferedInputStream(file.getInputStream());
