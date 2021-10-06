@@ -49,7 +49,7 @@ public class EventController {
         return "File processed Sucessfully";
     }
 
-    @GetMapping("/EventLogger/get")
+    @GetMapping("/get")
     public Optional<EventLogTableEntity> getEvent(@RequestParam String id){
 //        return getEventDetails(id);
         return eventControllerService.getEvent(id);

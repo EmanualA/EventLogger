@@ -63,4 +63,14 @@ public class EventControllerTest {
                 .andExpect(status().isOk());
     }
 
+    @Test
+    public void getEvent() throws Exception {
+
+        this.mvc.perform(get("/EventLogger/get")
+                .param("id", "scsmbstgrc")
+                .with(SecurityMockMvcRequestPostProcessors.user("demo").password("demo")))
+                .andExpect(status().isOk());
+
+    }
+
 }
